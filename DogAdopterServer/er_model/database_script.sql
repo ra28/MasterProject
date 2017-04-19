@@ -100,11 +100,11 @@ DROP TABLE IF EXISTS `mydb`.`Announcement` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Announcement` (
   `idShelter` INT NOT NULL,
-  `idAnnouncement` INT NOT NULL,
+  `idAnnouncement` INT NOT NULL AUTO_INCREMENT,
   `comment` VARCHAR(512) NOT NULL,
   `url` VARCHAR(128) NULL,
   `date` DATE NOT NULL,
-  PRIMARY KEY (`idShelter`, `idAnnouncement`),
+  PRIMARY KEY (`idAnnouncement`),
   CONSTRAINT `fk_Announcement_Shelter1`
     FOREIGN KEY (`idShelter`)
     REFERENCES `mydb`.`Shelter` (`idShelter`)

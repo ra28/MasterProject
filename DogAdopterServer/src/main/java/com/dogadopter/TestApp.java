@@ -1,15 +1,20 @@
 package com.dogadopter;
 
+import java.util.Date;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import com.dogadopter.entity.Announcement;
 import com.dogadopter.entity.Dog;
 import com.dogadopter.entity.Shelter;
 import com.dogadopter.entity.User;
-import com.dogadopter.entity.enums.Gender;
+import com.dogadopter.entity.VeterinaryClinic;
+import com.dogadopter.service.AnnouncementService;
 import com.dogadopter.service.DogService;
 import com.dogadopter.service.ShelterService;
 import com.dogadopter.service.UserService;
+import com.dogadopter.service.VeterinaryClinicService;
 
 public class TestApp {
 
@@ -54,6 +59,24 @@ public class TestApp {
 		
 		DogService dogService = (DogService)appContext.getBean("dogService");
 		dogService.save(dog);
+		
+		VeterinaryClinic veterinaryClinic = new VeterinaryClinic();
+		veterinaryClinic.setAddress("address");
+		veterinaryClinic.setCity("city");
+		veterinaryClinic.setName("name");
+		veterinaryClinic.setNumber("number");
+		
+		VeterinaryClinicService vcService = (VeterinaryClinicService)appContext.getBean("veterinaryClinicService");
+		vcService.save(veterinaryClinic);
+		
+		Announcement announcement = new Announcement();
+		announcement.setComment("comment");
+		announcement.setDate(new Date());
+		announcement.setIdShelter(shelter.getIdShelter());
+		announcement.setImageUrl("url");
+		
+		AnnouncementService announcementService = (AnnouncementService)appContext.getBean("announcementService");
+		announcementService.save(announcement);
 		
 
 	}

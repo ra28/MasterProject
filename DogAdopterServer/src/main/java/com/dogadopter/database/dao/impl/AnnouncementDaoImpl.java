@@ -1,22 +1,23 @@
 package com.dogadopter.database.dao.impl;
 
+import org.springframework.stereotype.Repository;
 import com.dogadopter.database.dao.AnnouncementDao;
 import com.dogadopter.entity.Announcement;
+import com.dogadopter.util.CustomHibernateDaoSupport;
 
-public class AnnouncementDaoImpl implements AnnouncementDao{
+@Repository("announcementDao")
+public class AnnouncementDaoImpl extends CustomHibernateDaoSupport implements AnnouncementDao{
 
 	public void save(Announcement announcement) {
-		// TODO Auto-generated method stub
-		
+		getHibernateTemplate().save(announcement);
 	}
 
 	public void update(Announcement announcement) {
-		// TODO Auto-generated method stub
-		
+		getHibernateTemplate().update(announcement);
 	}
 
 	public void delete(Announcement announcement) {
-		// TODO Auto-generated method stub
+		getHibernateTemplate().delete(announcement);
 		
 	}
 

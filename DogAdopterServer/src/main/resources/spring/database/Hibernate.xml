@@ -24,6 +24,8 @@ class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBea
 		<value>com.dogadopter.entity.User</value>
 		<value>com.dogadopter.entity.Shelter</value>
 		<value>com.dogadopter.entity.Dog</value>
+		<value>com.dogadopter.entity.VeterinaryClinic</value>
+		<value>com.dogadopter.entity.Announcement</value>
 	</list>
     </property>
 
