@@ -3,18 +3,27 @@ package com.dogadopter.entity;
 import java.io.Serializable;
 
 import com.dogadopter.entity.enums.Gender;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import static javax.persistence.GenerationType.IDENTITY;
 
+
+@Entity
+@Table(name = "Dog", catalog = "mydb")
 public class Dog implements Serializable{
 
 	private int dogId;
 	private String name;
 	private String bread;
-	private Gender gender;
+	private int gender;
 	private int age;
 	private double weight;
 	private double height;
-	private Boolean isSterilized;
-	private Boolean isMarked;
+	private int isSterilized;
+	private int isMarked;
 	private String anamnesis;
 	private int idShelter;
 	
@@ -25,8 +34,8 @@ public class Dog implements Serializable{
 	}
 
 
-	public Dog(int dogId, String name, String bread, Gender gender, int age, double weight, double height,
-			Boolean isSterilized, Boolean isMarked, String anamnesis, int idShelter) {
+	public Dog(int dogId, String name, String bread, int gender, int age, double weight, double height,
+			int isSterilized, int isMarked, String anamnesis, int idShelter) {
 		super();
 		this.dogId = dogId;
 		this.name = name;
@@ -41,7 +50,9 @@ public class Dog implements Serializable{
 		this.idShelter = idShelter;
 	}
 
-
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "dogId", unique = true, nullable = false)
 	public int getDogId() {
 		return dogId;
 	}
@@ -51,7 +62,7 @@ public class Dog implements Serializable{
 		this.dogId = dogId;
 	}
 
-
+	@Column(name = "name", unique = false, nullable = false, length = 45)
 	public String getName() {
 		return name;
 	}
@@ -61,7 +72,7 @@ public class Dog implements Serializable{
 		this.name = name;
 	}
 
-
+	@Column(name = "bread", unique = false, nullable = false, length = 45)
 	public String getBread() {
 		return bread;
 	}
@@ -71,17 +82,17 @@ public class Dog implements Serializable{
 		this.bread = bread;
 	}
 
-
-	public Gender getGender() {
+	@Column(name = "gender", unique = false, nullable = false, length = 11)
+	public int getGender() {
 		return gender;
 	}
 
 
-	public void setGender(Gender gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 
-
+	@Column(name = "age", unique = false, nullable = false, length = 11)
 	public int getAge() {
 		return age;
 	}
@@ -91,7 +102,7 @@ public class Dog implements Serializable{
 		this.age = age;
 	}
 
-
+	@Column(name = "weight", unique = false, nullable = false, length = 10)
 	public double getWeight() {
 		return weight;
 	}
@@ -101,7 +112,7 @@ public class Dog implements Serializable{
 		this.weight = weight;
 	}
 
-
+	@Column(name = "height", unique = false, nullable = false, length = 10)
 	public double getHeight() {
 		return height;
 	}
@@ -111,27 +122,27 @@ public class Dog implements Serializable{
 		this.height = height;
 	}
 
-
-	public Boolean getIsSterilized() {
+	@Column(name = "sterilizied", unique = false, nullable = false, length = 1)
+	public int getIsSterilized() {
 		return isSterilized;
 	}
 
 
-	public void setIsSterilized(Boolean isSterilized) {
+	public void setIsSterilized(int isSterilized) {
 		this.isSterilized = isSterilized;
 	}
 
-
-	public Boolean getIsMarked() {
+	@Column(name = "marked", unique = false, nullable = false, length = 1)
+	public int getIsMarked() {
 		return isMarked;
 	}
 
 
-	public void setIsMarked(Boolean isMarked) {
+	public void setIsMarked(int isMarked) {
 		this.isMarked = isMarked;
 	}
 
-
+	@Column(name = "anamnesis", unique = false, nullable = false, length = 128)
 	public String getAnamnesis() {
 		return anamnesis;
 	}
@@ -141,7 +152,7 @@ public class Dog implements Serializable{
 		this.anamnesis = anamnesis;
 	}
 
-
+	@Column(name = "idShelter", unique = true, nullable = false, length = 11)
 	public int getIdShelter() {
 		return idShelter;
 	}

@@ -23,7 +23,7 @@ public class User implements Serializable {
 	private String location;
 
 	public User() {
-		super();
+		//super();
 	}
 
 	public User(int idUser, String username, String password, String firstName, String lastName, String email,

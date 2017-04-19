@@ -1,7 +1,16 @@
 package com.dogadopter.entity;
 
 import java.io.Serializable;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import static javax.persistence.GenerationType.IDENTITY;
 
+
+@Entity
+@Table(name = "Shelter", catalog = "mydb")
 public class Shelter implements Serializable{
 
 	private int idShelter;
@@ -10,7 +19,7 @@ public class Shelter implements Serializable{
 	private String number;
 	private String location;
 	private String city;
-	private String bankAccount;
+	private int bankAccount;
 	
 	
 	public Shelter() {
@@ -19,7 +28,7 @@ public class Shelter implements Serializable{
 
 
 	public Shelter(int idShelter, String name, String address, String number, String location, String city,
-			String bankAccount) {
+			int bankAccount) {
 		super();
 		this.idShelter = idShelter;
 		this.name = name;
@@ -30,7 +39,9 @@ public class Shelter implements Serializable{
 		this.bankAccount = bankAccount;
 	}
 
-
+	@Id
+	@GeneratedValue(strategy = IDENTITY)
+	@Column(name = "idShelter", unique = true, nullable = false)
 	public int getIdShelter() {
 		return idShelter;
 	}
@@ -40,7 +51,7 @@ public class Shelter implements Serializable{
 		this.idShelter = idShelter;
 	}
 
-
+	@Column(name = "name", unique = true, nullable = false, length = 45)
 	public String getName() {
 		return name;
 	}
@@ -50,7 +61,7 @@ public class Shelter implements Serializable{
 		this.name = name;
 	}
 
-
+	@Column(name = "address", unique = true, nullable = false, length = 128)
 	public String getAddress() {
 		return address;
 	}
@@ -60,7 +71,7 @@ public class Shelter implements Serializable{
 		this.address = address;
 	}
 
-
+	@Column(name = "phone", unique = true, nullable = false, length = 45)
 	public String getNumber() {
 		return number;
 	}
@@ -70,7 +81,7 @@ public class Shelter implements Serializable{
 		this.number = number;
 	}
 
-
+	@Column(name = "location", unique = true, nullable = true, length = 45)
 	public String getLocation() {
 		return location;
 	}
@@ -80,7 +91,7 @@ public class Shelter implements Serializable{
 		this.location = location;
 	}
 
-
+	@Column(name = "city", unique = false, nullable = true, length = 45)
 	public String getCity() {
 		return city;
 	}
@@ -90,13 +101,13 @@ public class Shelter implements Serializable{
 		this.city = city;
 	}
 
-
-	public String getBankAccount() {
+	@Column(name = "bankAccount", unique = true, nullable = false, length = 45)
+	public int getBankAccount() {
 		return bankAccount;
 	}
 
 
-	public void setBankAccount(String bankAccount) {
+	public void setBankAccount(int bankAccount) {
 		this.bankAccount = bankAccount;
 	}
 	

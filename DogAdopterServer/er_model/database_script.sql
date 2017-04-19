@@ -74,7 +74,7 @@ DROP TABLE IF EXISTS `mydb`.`Dog` ;
 
 CREATE TABLE IF NOT EXISTS `mydb`.`Dog` (
   `idShelter` INT NOT NULL,
-  `dogId` INT NOT NULL,
+  `dogId` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(45) NOT NULL,
   `bread` VARCHAR(45) NULL,
   `gender` INT NOT NULL,
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`Dog` (
   `sterilizied` TINYINT(1) NOT NULL,
   `marked` TINYINT(1) NOT NULL,
   `anamnesis` VARCHAR(128) NULL,
-  PRIMARY KEY (`idShelter`, `dogId`),
+  PRIMARY KEY (`dogId`),
   CONSTRAINT `fk_Dog_Shelter`
     FOREIGN KEY (`idShelter`)
     REFERENCES `mydb`.`Shelter` (`idShelter`)

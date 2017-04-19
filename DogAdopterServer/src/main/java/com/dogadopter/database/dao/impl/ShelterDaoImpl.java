@@ -1,23 +1,24 @@
 package com.dogadopter.database.dao.impl;
 
+import org.springframework.stereotype.Repository;
+
 import com.dogadopter.database.dao.ShelterDao;
 import com.dogadopter.entity.Shelter;
+import com.dogadopter.util.CustomHibernateDaoSupport;
 
-public class ShelterDaoImpl implements ShelterDao {
+@Repository("shelterDao")
+public class ShelterDaoImpl extends CustomHibernateDaoSupport implements ShelterDao {
 
 	public void save(Shelter shelter) {
-		// TODO Auto-generated method stub
-		
+		getHibernateTemplate().save(shelter);
 	}
 
 	public void update(Shelter shelter) {
-		// TODO Auto-generated method stub
-		
+		getHibernateTemplate().update(shelter);
 	}
 
 	public void delete(Shelter shelter) {
-		// TODO Auto-generated method stub
-		
+		getHibernateTemplate().delete(shelter);
 	}
 
 }
