@@ -30,5 +30,40 @@ public class UserRestService {
 		}
 		return false;
 	}
+	
+	public boolean registerUser(User user){
+		
+		ApplicationContext appContext =
+		    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+		UserService service =  (UserService)appContext.getBean("userService");
+		if(user == null){
+			return false;
+		}
+		service.save(user);
+		return true;	
+	}
+	public boolean updateUser(User user){
+		
+		ApplicationContext appContext =
+		    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+		UserService service =  (UserService)appContext.getBean("userService");
+		if(user == null){
+			return false;
+		}
+		service.update(user);
+		return true;	
+	}
+	
+	public boolean removeUser(User user){
+		
+		ApplicationContext appContext =
+		    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+		UserService service =  (UserService)appContext.getBean("userService");
+		if(user == null){
+			return false;
+		}
+		service.delete(user);
+		return true;	
+	}
 
 }
