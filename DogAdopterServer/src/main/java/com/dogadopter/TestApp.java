@@ -10,6 +10,7 @@ import com.dogadopter.entity.Dog;
 import com.dogadopter.entity.Shelter;
 import com.dogadopter.entity.User;
 import com.dogadopter.entity.VeterinaryClinic;
+import com.dogadopter.rest.UserRestService;
 import com.dogadopter.service.AnnouncementService;
 import com.dogadopter.service.DogService;
 import com.dogadopter.service.ShelterService;
@@ -32,7 +33,7 @@ public class TestApp {
 		user.setPassword("ana");
 		
 		UserService userService = (UserService)appContext.getBean("userService");
-		userService.save(user);
+		//userService.save(user);
 		
 		Shelter shelter = new Shelter();
 		shelter.setName("shelter");
@@ -43,7 +44,7 @@ public class TestApp {
 		shelter.setBankAccount(00000);
 		
 		ShelterService shelterService = (ShelterService)appContext.getBean("shelterService");
-		shelterService.save(shelter);
+		//shelterService.save(shelter);
 		
 		Dog dog = new Dog();
 		dog.setIdShelter(shelter.getIdShelter());
@@ -58,7 +59,7 @@ public class TestApp {
 		dog.setWeight(10);
 		
 		DogService dogService = (DogService)appContext.getBean("dogService");
-		dogService.save(dog);
+		//dogService.save(dog);
 		
 		VeterinaryClinic veterinaryClinic = new VeterinaryClinic();
 		veterinaryClinic.setAddress("address");
@@ -67,7 +68,7 @@ public class TestApp {
 		veterinaryClinic.setNumber("number");
 		
 		VeterinaryClinicService vcService = (VeterinaryClinicService)appContext.getBean("veterinaryClinicService");
-		vcService.save(veterinaryClinic);
+		//vcService.save(veterinaryClinic);
 		
 		Announcement announcement = new Announcement();
 		announcement.setComment("comment");
@@ -76,7 +77,10 @@ public class TestApp {
 		announcement.setImageUrl("url");
 		
 		AnnouncementService announcementService = (AnnouncementService)appContext.getBean("announcementService");
-		announcementService.save(announcement);
+		//announcementService.save(announcement);
+		
+		UserRestService service = new UserRestService();
+		boolean result = service.loginViaApp("ana", "ana");
 		
 
 	}

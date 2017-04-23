@@ -7,11 +7,17 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NamedQuery;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
+@NamedQuery(name = User.FIND_USER_WITH_USERNAME_AND_PASSWORD, query = "FROM User user WHERE user.username = :username AND user.password = :password")
 @Table(name = "User", catalog = "mydb")
 public class User implements Serializable {
+	
+	public final static String FIND_USER_WITH_USERNAME_AND_PASSWORD = "findUserWithUsernameAndPassword";
 
 	private int idUser;
 	private String username;
