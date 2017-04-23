@@ -8,13 +8,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NamedQueries;
+import org.hibernate.annotations.NamedQuery;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
+@NamedQueries({
+@NamedQuery(name = Dog.FIND_ALL_DOGS, query = "FROM Dog dog"),
+@NamedQuery(name = Dog.FIND_DOGS_BY_ID_OF_SHELTER, query = "FROM Dog dog WHERE dog.idShelter = :idShelter")
+})
 @Table(name = "Dog", catalog = "mydb")
 public class Dog implements Serializable{
 
+	public final static String FIND_ALL_DOGS = "findAllDogs";
+	public final static String FIND_DOGS_BY_ID_OF_SHELTER = "findDogsByIdOfShelter";
 	private int dogId;
 	private String name;
 	private String bread;

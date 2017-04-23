@@ -22,8 +22,9 @@ public class TestApp {
 	public static void main(String[] args) {
 		ApplicationContext appContext =
 		    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+		testForDogService(appContext);
 	}
-	public void testForUserService(ApplicationContext appContext){
+	public static void testForUserService(ApplicationContext appContext){
 
 		
 		//TEST DATA
@@ -110,8 +111,13 @@ public class TestApp {
 		//System.out.println(resultofDelete);
 		
 	}
-	public void testForDogService(ApplicationContext appContext){}
-	public void testForShleterService(ApplicationContext appContext){}
-	public void testForVCService(ApplicationContext appContext){}
-	public void testForAnnouncementService(ApplicationContext appContext){}
+	public static void testForDogService(ApplicationContext appContext){
+		DogService dogService = (DogService)appContext.getBean("dogService");
+		System.out.println(dogService.getAll());
+		System.out.println(dogService.getByIdOfShleter(1));
+
+	}
+	public static void testForShleterService(ApplicationContext appContext){}
+	public static void testForVCService(ApplicationContext appContext){}
+	public static void testForAnnouncementService(ApplicationContext appContext){}
 }

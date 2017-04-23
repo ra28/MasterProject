@@ -1,5 +1,7 @@
 package com.dogadopter.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,16 @@ public class DogServiceImpl implements DogService {
 
 	public void delete(Dog dog) {
 		dogDao.delete(dog);
+	}
+
+	@Override
+	public List<Dog> getAll() {
+		return dogDao.getAll();
+	}
+
+	@Override
+	public List<Dog> getByIdOfShleter(int id) {
+		return dogDao.getByIdOfShleter(id);
 	}
 
 }
