@@ -20,10 +20,12 @@ import com.dogadopter.service.VeterinaryClinicService;
 public class TestApp {
 
 	public static void main(String[] args) {
-		
-		
 		ApplicationContext appContext =
 		    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
+	}
+	public void testForUserService(ApplicationContext appContext){
+
+		
 		//TEST DATA
 //		User user = new User();
 //		user.setEmail("lukicmihailo@gmail.com");
@@ -107,9 +109,9 @@ public class TestApp {
 		//boolean resultofDelete = service.removeUser(user2);
 		//System.out.println(resultofDelete);
 		
-		
-		
-
 	}
-
+	public void testForDogService(ApplicationContext appContext){}
+	public void testForShleterService(ApplicationContext appContext){}
+	public void testForVCService(ApplicationContext appContext){}
+	public void testForAnnouncementService(ApplicationContext appContext){}
 }
