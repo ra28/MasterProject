@@ -1,21 +1,9 @@
 package com.dogadopter;
 
-import java.util.Date;
-
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.dogadopter.entity.Announcement;
-import com.dogadopter.entity.Dog;
-import com.dogadopter.entity.Shelter;
-import com.dogadopter.entity.User;
-import com.dogadopter.entity.VeterinaryClinic;
-import com.dogadopter.rest.UserRestService;
-import com.dogadopter.service.AnnouncementService;
 import com.dogadopter.service.DogService;
-import com.dogadopter.service.ShelterService;
-import com.dogadopter.service.UserService;
-import com.dogadopter.service.VeterinaryClinicService;
 
 public class TestApp {
 
