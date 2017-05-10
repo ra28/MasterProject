@@ -1,9 +1,0 @@
-package com.dogadopter.database.dao;
-
-import com.dogadopter.entity.Announcement;
-
-public interface AnnouncementDao {
-	void save(Announcement announcement);
-	void update(Announcement announcement);
-	void delete(Announcement announcement);
-}

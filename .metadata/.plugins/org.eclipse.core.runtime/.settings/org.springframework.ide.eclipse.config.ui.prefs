@@ -1,0 +1,5 @@
+//com.springsource.config.ui.prefs.activePageIndex\:/DogAdopter/src/main/resources/spring/config/BeanLocations.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/DogAdopter/src/main/resources/spring/database/DataSource.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/DogAdopter/src/main/resources/spring/database/Hibernate.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+//com.springsource.config.ui.prefs.activePageIndex\:/DogAdopterServer/src/main/resources/spring/config/BeanLocations.xml=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<activePage index\="0"/>
+eclipse.preferences.version=1

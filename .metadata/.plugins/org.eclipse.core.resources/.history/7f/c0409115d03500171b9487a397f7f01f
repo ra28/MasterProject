@@ -1,0 +1,9 @@
+package com.dogAdopter.database.dao;
+
+import entity.Shelter;
+
+public interface ShelterDao {
+	void save(Shelter shelter);
+	void update(Shelter shelter);
+	void delete(Shelter shelter);
+}
