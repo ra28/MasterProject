@@ -1,0 +1,9 @@
+package com.dogAdopter.database.dao;
+
+import entity.VeterinaryClinic;
+
+public interface VeterinaryClinicDao {
+	void save(VeterinaryClinic clinic);
+	void update(VeterinaryClinic clinic);
+	void delete(VeterinaryClinic clinic);
+}

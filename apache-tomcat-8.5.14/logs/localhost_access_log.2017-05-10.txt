@@ -1,0 +1,1 @@
+0:0:0:0:0:0:0:1 - - [10/May/2017:23:55:48 +0200] "GET /DogAdopter/rest/ctofservice/ HTTP/1.1" 200 157
