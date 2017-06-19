@@ -6,13 +6,18 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+
+import org.hibernate.annotations.NamedQuery;
+
 import static javax.persistence.GenerationType.IDENTITY;
 
 
 @Entity
+@NamedQuery(name = Shelter.GET_ALL, query = "FROM Shelter shelter")
 @Table(name = "Shelter", catalog = "mydb")
 public class Shelter implements Serializable{
 
+	public final static String GET_ALL = "getAllShelters";
 	private int idShelter;
 	private String name;
 	private String address;

@@ -1,5 +1,7 @@
 package com.dogAdopter.service.impl;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +25,9 @@ public class ShelterServiceImpl implements ShelterService {
 
 	public void delete(Shelter shelter) {
 		shleterDao.delete(shelter);
+	}
+	public List<Shelter> getAll(){
+		return shleterDao.getAll();
 	}
 
 }

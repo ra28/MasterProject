@@ -1,5 +1,7 @@
 package com.dogAdopter.database.dao.impl;
 
+import java.util.List;
+
 import org.springframework.stereotype.Repository;
 
 import com.dogAdopter.database.dao.ShelterDao;
@@ -19,6 +21,14 @@ public class ShelterDaoImpl extends CustomHibernateDaoSupport implements Shelter
 
 	public void delete(Shelter shelter) {
 		getHibernateTemplate().delete(shelter);
+	}
+	
+	public List<Shelter> getAll() {
+		List<Shelter> list = ((ShelterDao) getHibernateTemplate()).getAll();
+		if(list.isEmpty()){
+			return null;
+		}
+		return list;
 	}
 
 }
