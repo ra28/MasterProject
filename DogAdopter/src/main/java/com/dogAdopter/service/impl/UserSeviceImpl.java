@@ -1,5 +1,7 @@
 package com.dogAdopter.service.impl;
 
+import java.util.ArrayList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,6 +33,18 @@ public class UserSeviceImpl implements UserService {
 	@Override
 	public User findUserWithUsernameAndPassword(String username, String password) {
 		return userDao.findUserWithUsernameAndPassword(username, password);
+	}
+
+	@Override
+	public User findUserWithId(Integer id) {
+		// TODO Auto-generated method stub
+		return userDao.findUserWithId(id);
+	}
+
+	@Override
+	public ArrayList<User> findAllUser() {
+		// TODO Auto-generated method stub
+		return userDao.findAllUser();
 	}
 
 }

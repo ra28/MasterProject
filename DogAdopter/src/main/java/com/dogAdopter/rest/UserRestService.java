@@ -1,7 +1,5 @@
 package com.dogAdopter.rest;
 
-import java.io.InputStream;
-
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
@@ -13,6 +11,7 @@ import javax.ws.rs.core.MediaType;
 import org.json.JSONObject;
 
 import com.dogAdopter.entity.User;
+import com.dogAdopter.util.JSONMapper;
 
 @Path("/userservice")
 public class UserRestService extends BaseRestService{
@@ -35,9 +34,15 @@ public class UserRestService extends BaseRestService{
 	@Path("userById")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Object getUserById(InputStream incomingData){
-		System.out.println("MISA: object: " + incomingData);
-		return userService.findUserWithUsernameAndPassword("ana", "ana");
+	public Object getUserById(String jsonRequest){
+		return userService.findUserWithId(JSONMapper.getID(jsonRequest));
+	}
+	
+	@POST
+	@Path("userAll")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Object getAllUser(){
+		return JSONMapper.getJSONArray(userService.findAllUser());
 	}
 
 }

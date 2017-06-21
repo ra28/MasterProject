@@ -1,5 +1,7 @@
 package com.dogAdopter.database.dao;
 
+import java.util.ArrayList;
+
 import com.dogAdopter.entity.User;
 
 public interface UserDao {
@@ -9,5 +11,7 @@ public interface UserDao {
 	void delete(User user);
 	
 	User findUserWithUsernameAndPassword(String username, String password);
+	User findUserWithId(Integer id);
+	ArrayList<User> findAllUser();
 
 }

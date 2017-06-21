@@ -6,18 +6,25 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.NamedQueries;
 import javax.persistence.Table;
 
-import org.hibernate.annotations.NamedQuery;
+import javax.persistence.NamedQuery;
 
 import static javax.persistence.GenerationType.IDENTITY;
 
 @Entity
-@NamedQuery(name = User.FIND_USER_WITH_USERNAME_AND_PASSWORD, query = "FROM User user WHERE user.username = :username AND user.password = :password")
+@NamedQueries({
+		@NamedQuery(name = User.FIND_USER_WITH_USERNAME_AND_PASSWORD, query = "FROM User user WHERE user.username = :username AND user.password = :password"),
+		@NamedQuery(name = User.FIND_USER_WITH_ID, query = "FROM User user WHERE user.idUser = :id"),
+		@NamedQuery(name = User.FIND_ALL_USERS, query = "FROM User user")
+})
 @Table(name = "User", catalog = "mydb")
 public class User implements Serializable {
-	
+
 	public final static String FIND_USER_WITH_USERNAME_AND_PASSWORD = "findUserWithUsernameAndPassword";
+	public final static String FIND_USER_WITH_ID = "findUserWithId";
+	public static final String FIND_ALL_USERS = "findAllUser";
 
 	private int idUser;
 	private String username;
@@ -29,7 +36,7 @@ public class User implements Serializable {
 	private String location;
 
 	public User() {
-		//super();
+		// super();
 	}
 
 	public User(int idUser, String username, String password, String firstName, String lastName, String email,
