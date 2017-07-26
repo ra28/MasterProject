@@ -1,7 +1,10 @@
 package com.dogAdopter.rest;
 
-import java.util.List;
+import com.dogAdopter.entity.Shelter;
+import com.dogAdopter.util.JSONMapper;
+import com.google.gson.Gson;
 
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
@@ -9,28 +12,31 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 
-import org.json.JSONObject;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.dogAdopter.entity.Shelter;
-import com.dogAdopter.service.ShelterService;
-
-
-@Path("/shelterservice")
-public class ShelterRestService {
+@Path("/shelterService")
+public class ShelterRestService extends BaseRestService {
 	
-	ApplicationContext appContext =
-	    	  new ClassPathXmlApplicationContext("spring/config/BeanLocations.xml");
-	ShelterService shelterService = (ShelterService)appContext.getBean("shelterService");
-	
-	@GET
-	@Path("getAll")
-	@Produces(MediaType.APPLICATION_JSON)
-	public Object getAll() {
- 
-		 List<Shelter> shelters = shelterService.getAll();
-		 return JSONObject.wrap(shelters);
-	}
+    public ShelterRestService() {
+        super();
+    }
+
+    @GET
+    @Path("shelterByID/{idOfShelter}")
+    @Produces(MediaType.APPLICATION_JSON)
+    @Consumes(MediaType.APPLICATION_JSON)
+    public String getShelterById(@PathParam("idOfShelter") String idOfShelter) {
+        //return shelterService.getShelterById(JSONMapper.getID(jsonRequest));
+    	Shelter shelter = shelterService.getShelterById(Integer.parseInt(idOfShelter));
+    	return gson.toJson(shelter);
+    	
+    }
+
+    @GET
+    @Path("shelterAll")
+    @Produces(MediaType.APPLICATION_JSON)
+    public String getAllShelter() {
+       // return JSONMapper.getJSONArray(shelterService.getAll());
+	   return gson.toJson(shelterService.getAll());
+    }
 
 }

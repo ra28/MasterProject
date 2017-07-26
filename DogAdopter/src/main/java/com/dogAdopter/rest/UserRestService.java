@@ -12,6 +12,7 @@ import org.json.JSONObject;
 
 import com.dogAdopter.entity.User;
 import com.dogAdopter.util.JSONMapper;
+import com.google.gson.Gson;
 
 @Path("/userservice")
 public class UserRestService extends BaseRestService{
@@ -23,26 +24,29 @@ public class UserRestService extends BaseRestService{
 	@GET
 	@Path("login/{username}/{password}")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Object login(@PathParam("username") String username,
+	public String login(@PathParam("username") String username,
 					  @PathParam("password") String password) {
- 
 		 User user = userService.findUserWithUsernameAndPassword(username, password);
-		 return JSONObject.stringToValue(user.toString());
+		 return gson.toJson(user);
 	}
 	
-	@POST
-	@Path("userById")
+	@GET
+	@Path("userById/{idOfUser}")
 	@Produces(MediaType.APPLICATION_JSON)
 	@Consumes(MediaType.APPLICATION_JSON)
-	public Object getUserById(String jsonRequest){
-		return userService.findUserWithId(JSONMapper.getID(jsonRequest));
+	public String getUserById(@PathParam("idOfUser") String idOfUser){
+		
+		//User user = userService.findUserWithId(JSONMapper.getID(jsonRequest));
+		User user = userService.findUserWithId(Integer.parseInt(idOfUser));
+		return gson.toJson(user);
 	}
 	
-	@POST
+	@GET
 	@Path("userAll")
 	@Produces(MediaType.APPLICATION_JSON)
-	public Object getAllUser(){
-		return JSONMapper.getJSONArray(userService.findAllUser());
+	public String getAllUser(){
+		//return JSONMapper.getJSONArray(userService.findAllUser());
+		return gson.toJson(userService.findAllUser());
 	}
 
 }

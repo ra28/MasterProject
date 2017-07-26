@@ -7,6 +7,8 @@ import com.dogAdopter.database.dao.AnnouncementDao;
 import com.dogAdopter.entity.Announcement;
 import com.dogAdopter.service.AnnouncementService;
 
+import java.util.ArrayList;
+
 @Service("announcementService")
 public class AnnouncementServiceImpl implements AnnouncementService{
 
@@ -23,6 +25,16 @@ public class AnnouncementServiceImpl implements AnnouncementService{
 
 	public void delete(Announcement announcement) {
 		announcementDao.delete(announcement);
+	}
+
+	@Override
+	public ArrayList<Announcement> getAnnouncementByShelterId(Integer id) {
+		return announcementDao.getAnnouncementByShelterId(id);
+	}
+
+	@Override
+	public Announcement getAnnouncementId(Integer id) {
+		return announcementDao.getAnnouncementById(id);
 	}
 
 }

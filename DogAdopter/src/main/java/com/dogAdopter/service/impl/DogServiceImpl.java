@@ -1,5 +1,6 @@
 package com.dogAdopter.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,12 +29,12 @@ public class DogServiceImpl implements DogService {
 	}
 
 	@Override
-	public List<Dog> getAll() {
+	public ArrayList<Dog> getAll() {
 		return dogDao.getAll();
 	}
 
 	@Override
-	public List<Dog> getByIdOfShleter(int id) {
+	public ArrayList<Dog> getByIdOfShleter(int id) {
 		return dogDao.getByIdOfShleter(id);
 	}
 
